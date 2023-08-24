@@ -1,0 +1,70 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Matriz {
+    public static void main(String[] args) {
+
+
+
+    }
+    public static boolean esMatrizTipoCero(int[][] matriz) {
+        int totalElementos = matriz.length * matriz[0].length;
+        int ceros = 0;
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] == 0) {
+                    ceros++;
+                }
+            }
+        }
+
+        return ceros > totalElementos / 2;
+    }
+    public static int ingresarM(int filas){
+        Scanner A = new Scanner(System.in);
+        System.out.println("Ingrese el número de filas: ");
+        filas = A.nextInt();
+        return filas;
+    }
+
+    public static int IngresarN(int cols){
+        Scanner B = new Scanner(System.in);
+        System.out.println("Ingrese el número de columnas: ");
+        cols = B.nextInt();
+        return cols;
+    }
+
+    public static boolean validarDimensiones(int filas,int cols) {
+        if (filas>=0 && cols>=0)
+            return true;
+        else {
+            return false;
+        }
+    }
+
+    public static int[][] crearMatriz(int filas,int cols){
+        return new int[filas][cols];
+    }
+
+    public static void llenarMatriz(int[][] matriz) {
+        Random random = new Random();
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = random.nextInt(10);
+            }
+        }
+    }
+
+    public static void mostrarFila(int[][] matriz, int fila) {
+        if (fila >= 0 && fila < matriz.length) {
+            System.out.print("Fila " + fila + ": ");
+            for (int j = 0; j < matriz[fila].length; j++) {
+                System.out.print(matriz[fila][j] + " ");
+            }
+            System.out.println(); // Cambia de línea después de imprimir la fila
+        } else {
+            System.out.println("Fila fuera de rango.");
+        }
+    }
+}
